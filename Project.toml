@@ -1,4 +1,4 @@
-name = "VectorLogger"
+name = "VectorLogging"
 uuid = "ec499083-3b8a-4310-a81e-8622934b14d2"
 authors = ["MarkNahabedian <naha@mit.edu> and contributors"]
 version = "0.1.0"

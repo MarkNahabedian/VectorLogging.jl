@@ -1,9 +1,9 @@
-using VectorLogger
+using VectorLogging
 using Logging
 using Test
 
-@testset "VectorLogger.jl" begin
-    logger = VectorLogger_()
+@testset "VectorLogging.jl" begin
+    logger = VectorLogger()
     with_logger(logger) do
         @info "First log message"
         @warn("Second log message, with payload", payload="foo")
