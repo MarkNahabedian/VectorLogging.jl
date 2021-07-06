@@ -1,0 +1,13 @@
+name = "VectorLogger"
+uuid = "ec499083-3b8a-4310-a81e-8622934b14d2"
+authors = ["MarkNahabedian <naha@mit.edu> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
