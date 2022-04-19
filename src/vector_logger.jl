@@ -2,6 +2,10 @@ using Logging
 
 export LogEntry, VectorLogger
 
+"""
+    LogEntry
+LogEntry encapsulates the data for a single log message to VectorLogger.
+"""
 struct LogEntry
     level
     message
@@ -13,6 +17,11 @@ struct LogEntry
     keys
 end
 
+"""
+    VectorLogger
+VectorLogger is an in-memory log destination.
+The logger's `log` slot is a `Vector` of `LogEntry`s.
+"""
 @Base.kwdef mutable struct VectorLogger <: Logging.AbstractLogger
     log::Vector{LogEntry} = Vector{LogEntry}()
 end
