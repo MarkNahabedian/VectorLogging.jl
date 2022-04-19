@@ -1,6 +1,6 @@
 
 using Documenter
-using AnotherParser
+using VectorLogging
 
 #=
 See this document
