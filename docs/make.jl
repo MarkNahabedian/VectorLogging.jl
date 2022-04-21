@@ -29,5 +29,6 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/MarkNahabedian/VectorLogging.jl",
+           repo="github.com/MarkNahabedian/VectorLogging.jl",
+           devbranch="main",
 )
