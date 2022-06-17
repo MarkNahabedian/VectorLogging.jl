@@ -47,3 +47,14 @@ function Logging.catch_exceptions(logger::VectorLogger)
     false
 end
 
+# Implement the Indexing interface by delegating to the underlying
+# Vector:
+
+Base.length(log::VectorLogger) = length(log.log)
+
+Base.getindex(log::VectorLogger, index) = getindex(log.log, index)
+
+Base.firstindex(log::VectorLogger, index) = firstindex(log.log)
+
+Base.lastindex(log::VectorLogger, index) = lastindex(log.log)
+
