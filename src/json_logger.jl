@@ -49,7 +49,7 @@ Base.close(logger::JSONLogger) = close(logger.io)
 function Logging.handle_message(logger::JSONLogger, level::LogLevel,
                                 message, _module, group, id,
                                 file, line; keys...)
-    e = LogEntry(level, message, string(_module), group, id,
+    e = LogEntry(level, message, nameof(_module), group, id,
                  file, line, keys)
     JSON.print(logger.io, e)
     write(logger.io, "\n")

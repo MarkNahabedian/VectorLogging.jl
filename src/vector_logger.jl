@@ -30,7 +30,7 @@ function Logging.handle_message(logger::VectorLogger, level::LogLevel,
                                 message, _module, group, id,
                                 file, line; keys...)
     push!(logger.log,
-          LogEntry(level, message, _module, group, id,
+          LogEntry(level, message, nameof(_module), group, id,
                    file, line, keys))
     return nothing
 end
@@ -57,4 +57,7 @@ Base.getindex(log::VectorLogger, index) = getindex(log.log, index)
 Base.firstindex(log::VectorLogger, index) = firstindex(log.log)
 
 Base.lastindex(log::VectorLogger, index) = lastindex(log.log)
+
+Base.iterate(logger::VectorLogger) = Base.iterate(logger.log)
+Base.iterate(logger::VectorLogger, state) = Base.iterate(logger.log, state)
 

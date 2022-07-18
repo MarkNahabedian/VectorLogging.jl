@@ -15,7 +15,21 @@ using Test
     # Second log entry:
     @test logger[2].message == "Second log message, with payload"
     @test logger[2].level == Logging.Warn
-    @test logger[2].keys[:payload] == "foo"    
+    @test logger[2].keys[:payload] == "foo"
+end
+
+@testset "VectorLOgger is iterable" begin
+    messages = ["foo", "bar"]
+    logger = VectorLogger()
+    with_logger(logger) do
+        for message in messages
+            @info message
+        end
+    end
+    @test length(logger) == length(messages)
+    for (log_entry, expect) in zip(logger, messages)
+        @test log_entry.message == expect
+    end
 end
 
 @testset "JSONLogger" begin
@@ -28,10 +42,8 @@ end
             end
         end
     end
-    expect, mistate = iterate(messages)
-    for log_entry in JSONLogReader(log)
+    for (log_entry, expect) in zip(JSONLogReader(log), messages)
         @test log_entry.message == expect
-        expect, state = iterate(messages, mistate)
     end
 end
 
