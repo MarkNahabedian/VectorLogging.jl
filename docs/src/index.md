@@ -41,7 +41,7 @@ logger.log
 `JSONLogger` allows a machine readable log to be preserved across
 Julia sessions.
 
-```docs
+```@docs
 JSONLogger
 JSONLogReader
 ```
