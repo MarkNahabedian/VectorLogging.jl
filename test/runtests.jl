@@ -18,3 +18,20 @@ using Test
     @test logger[2].keys[:payload] == "foo"    
 end
 
+@testset "JSONLogger" begin
+    messages = ["foo", "bar"]
+    log = tempname()
+    JSONLogger(log) do logger
+        with_logger(logger) do
+            for message in messages
+                @info message
+            end
+        end
+    end
+    expect, mistate = iterate(messages)
+    for log_entry in JSONLogReader(log)
+        @test log_entry.message == expect
+        expect, state = iterate(messages, mistate)
+    end
+end
+

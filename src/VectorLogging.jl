@@ -3,6 +3,7 @@
 module VectorLogging
 
 include("vector_logger.jl")
+include("json_logger.jl")
 
 end
 

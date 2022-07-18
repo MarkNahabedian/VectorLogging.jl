@@ -1,6 +1,18 @@
 # VectorLogging.jl
 
-VectorLOgging provides an in-memory logging destination.
+The loggers in this package create log entries of this form:
+
+```@doc
+LogEntry
+```
+
+which is conducive to automated analysis.
+
+
+## VectorLogger
+
+`VectorLogger` creates an in-memory log which can be programaticallly
+analyzed.
 
 ```@docs
 LogEntry
@@ -22,3 +34,15 @@ end
 logger.log
 
 ```
+
+*s
+### JSONLogger
+
+`JSONLogger` allows a machine readable log to be preserved across
+Julia sessions.
+
+```docs
+JSONLogger
+JSONLogReader
+```
+

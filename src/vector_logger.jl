@@ -35,7 +35,7 @@ function Logging.handle_message(logger::VectorLogger, level::LogLevel,
     return nothing
 end
 
-function Logging.shouldlog(logger, level, _module, group, id)
+function Logging.shouldlog(logger::VectorLogger, level, _module, group, id)
     true
 end
 
