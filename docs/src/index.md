@@ -58,7 +58,7 @@ FileLogger("foo.log", JSONLogFileFormat()) do logger
     end
 end
 
-LogFileReader(("foo.log", JSONLogFileFormat()) do reader
+LogFileReader("foo.log", JSONLogFileFormat()) do reader
     collect(reader)
 end
 ```
