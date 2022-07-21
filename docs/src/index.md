@@ -35,14 +35,30 @@ logger.log
 
 ```
 
-*s
-### JSONLogger
 
-`JSONLogger` allows a machine readable log to be preserved across
-Julia sessions.
+## FileLogger and LogFileReader
+
+Sometimes one needs a machine readable log that outlives a Julia
+session.
 
 ```@docs
-JSONLogger
-JSONLogReader
+FileLogger
+LogFileReader
+AbstractLogFileFormat
 ```
 
+```@example
+using Logging
+using VectorLogging
+
+FileLogger("foo.log", JSONLogFileFormat()) do logger
+    with_logger(logger) do
+        @info "Message 1"
+        @info "Message 2"
+    end
+end
+
+LogFileReader(("foo.log", JSONLogFileFormat()) do reader
+    collect(reader)
+end
+```

@@ -2,8 +2,10 @@
 
 module VectorLogging
 
+using Logging
+
 include("vector_logger.jl")
-include("json_logger.jl")
+include("file_logger.jl")
 
 end
 
